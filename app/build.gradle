@@ -32,11 +32,7 @@ dependencies {
     implementation androidX.'core-ktx'
     implementation androidX.appcompat
     implementation androidX.constraintlayout
-    androidTestImplementation tests.junit
-    androidTestImplementation tests.'espresso-core'
-    testImplementation tests.'test-junit'
 
     //module
-    project(':kotlinCoroutines')
-
+    implementation project(':kotlinCoroutines')
 }

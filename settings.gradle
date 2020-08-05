@@ -2,15 +2,23 @@ include ':app'
 rootProject.name = "BiliStudy"
 
 def compositeBuilds = [
-        ':kotlinCoroutines'     : './kotlon/kotlinCoroutines'
+        'kotlon'
 ]
+
+def includeModules = [
+        ':kotlinCoroutines'     : 'kotlin/kotlinCoroutines'
+]
+
+//add build
+//compositeBuilds.findAll { file(it).directory }.each { includeBuild(it) }
+
 /**
  * sample:
  *      include ':chronos'
  *      project(":chronos").projectDir = new File("./common/chronos")
  */
-//include submodule
-compositeBuilds.each {key,path->
+def rootDir=settingsDir
+includeModules.each {key,path->
     include key
-    project(key).projectDir=new File(path)
+    project(key).projectDir=new File(rootDir,path)
 }
