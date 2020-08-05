@@ -35,6 +35,7 @@ dependencies {
     implementation support.'constraintlayout-X'
 
     api kotlin_libs.coroutines
+    api kotlin_libs.'coroutines-android'
 
     //module
     compileOnly project(':framwork-utils')
