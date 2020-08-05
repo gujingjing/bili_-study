@@ -22,6 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    resourcePrefix "framwork_utils_"
 }
 
 dependencies {
@@ -29,10 +30,7 @@ dependencies {
 
     implementation kotlin_libs.'serialization-runtime'
 
-    implementation androidX.'core-ktx'
-    implementation androidX.appcompat
-    implementation androidX.constraintlayout
-
-    api kotlin_libs.coroutines
-
+    implementation support.'core-ktx'
+    implementation support.'appcompat-X'
+    implementation support.'constraintlayout-X'
 }

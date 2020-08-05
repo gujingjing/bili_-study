@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
@@ -7,13 +7,13 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.gjj.bilistudy"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -22,7 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    resourcePrefix "app_"
+    resourcePrefix "kotlin_coroutines_"
 }
 
 dependencies {
@@ -34,7 +34,9 @@ dependencies {
     implementation support.'appcompat-X'
     implementation support.'constraintlayout-X'
 
+    api kotlin_libs.coroutines
+
     //module
-    implementation project(':kotlin-coroutines')
-    implementation project(':framwork-utils')
+    compileOnly project(':framwork-utils')
+
 }

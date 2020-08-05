@@ -1,13 +1,19 @@
 package com.gjj.bilistudy
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.gjj.framwork.utils.launchActivity
+import com.gjj.kotlin.kotlincoroutines.CoroutinesTestActivity
+import kotlinx.android.synthetic.main.app_activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.app_activity_main)
 
+        //协程
+        kotlin_coroutine.setOnClickListener { launchActivity(this,CoroutinesTestActivity::class.java) }
 
     }
 

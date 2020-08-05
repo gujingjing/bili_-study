@@ -1,24 +1,30 @@
 include ':app'
 rootProject.name = "BiliStudy"
 
-def compositeBuilds = [
-        'kotlon'
-]
 
+/**
+ * 以下未自动include模块，子模块中暂时复制，后期打包做本地maven依赖
+ * 注意:
+ *      1. 不同模块下的路径地址pathDiff不同
+ *      2. 子模块需要导入的模块，必须和最外层project相同
+ *      3. 子模块直接将includeModules中的需要模块拷入即可
+ *
+ */
 def includeModules = [
-        ':kotlinCoroutines'     : 'kotlin/kotlinCoroutines'
+        ':kotlin-coroutines': 'kotlin/coroutines',
+        ':framwork-utils'   : 'framwork/utils',
 ]
-
-//add build
-//compositeBuilds.findAll { file(it).directory }.each { includeBuild(it) }
 
 /**
  * sample:
  *      include ':chronos'
  *      project(":chronos").projectDir = new File("./common/chronos")
  */
-def rootDir=settingsDir
-includeModules.each {key,path->
+def rootDir = settingsDir
+//对应模块录取的不同之处
+def pathDiff = ""
+includeModules.each { key, path ->
+    def modulePath = pathDiff + path
     include key
-    project(key).projectDir=new File(rootDir,path)
+    project(key).projectDir = new File(rootDir, modulePath)
 }

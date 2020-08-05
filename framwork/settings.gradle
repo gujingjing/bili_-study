@@ -1,9 +1,8 @@
-include ':coroutines'
-rootProject.name = "kotlin"
-
+include ':app'
+rootProject.name = "framwork"
+include ':utils'
 
 def includeModules = [
-        ':framwork-utils': 'framwork/utils',
 ]
 
 def rootDir = settingsDir

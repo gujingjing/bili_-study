@@ -10,6 +10,7 @@ ext{
     serialization_version = property('version_serialization').toString()
 
     androidSupportLibraryVersion = '28.0.0'
+    arch_lifecycle_X = '2.2.0'
 
     //for test
     testLibVersion = '1.5.4'
@@ -18,39 +19,54 @@ ext{
 //项目使用包版本信息
 ext{
     support = [
-            'v4'                    : "com.android.support:support-v4:$androidSupportLibraryVersion",
-            'annotations'           : "com.android.support:support-annotations:$androidSupportLibraryVersion",
-            'compat'                : "com.android.support:support-compat:$androidSupportLibraryVersion",
-            'appcompat'             : "com.android.support:appcompat-v7:$androidSupportLibraryVersion",
-            'gridlayout'            : "com.android.support:gridlayout-v7:$androidSupportLibraryVersion",
-            'recyclerview'          : "com.android.support:recyclerview-v7:$androidSupportLibraryVersion",
-            'design'                : "com.android.support:design:$androidSupportLibraryVersion",
-            'cardview'              : "com.android.support:cardview-v7:$androidSupportLibraryVersion",
-            'preference'            : "com.android.support:preference-v7:$androidSupportLibraryVersion",
-            'multidex'              : 'com.android.support:multidex:1.0.3',
-            'constraintlayout'      : 'com.android.support.constraint:constraint-layout:1.1.3',
-            'exifinterface'         : "com.android.support:exifinterface:$androidSupportLibraryVersion",
-            'testrunner'            : 'com.android.support.test:runner:1.0.2',
-            'dynamicanimation'      : "com.android.support:support-dynamic-animation:$androidSupportLibraryVersion",
-            'support-vector-drawable' : "com.android.support:support-vector-drawable:$androidSupportLibraryVersion",
-            'media-compat'          : "com.android.support:support-media-compat:$androidSupportLibraryVersion"
+            'v4'                     : "com.android.support:support-v4:$androidSupportLibraryVersion",
+            'annotations'            : "com.android.support:support-annotations:$androidSupportLibraryVersion",
+            'compat'                 : "com.android.support:support-compat:$androidSupportLibraryVersion",
+            'appcompat'              : "com.android.support:appcompat-v7:$androidSupportLibraryVersion",
+            'gridlayout'             : "com.android.support:gridlayout-v7:$androidSupportLibraryVersion",
+            'recyclerview'           : "com.android.support:recyclerview-v7:$androidSupportLibraryVersion",
+            'design'                 : "com.android.support:design:$androidSupportLibraryVersion",
+            'cardview'               : "com.android.support:cardview-v7:$androidSupportLibraryVersion",
+            'preference'             : "com.android.support:preference-v7:$androidSupportLibraryVersion",
+            'multidex'               : 'com.android.support:multidex:1.0.3',
+            'constraintlayout'       : 'com.android.support.constraint:constraint-layout:1.1.3',
+            'exifinterface'          : "com.android.support:exifinterface:$androidSupportLibraryVersion",
+            'testrunner'             : 'com.android.support.test:runner:1.0.2',
+            'dynamicanimation'       : "com.android.support:support-dynamic-animation:$androidSupportLibraryVersion",
+            'support-vector-drawable': "com.android.support:support-vector-drawable:$androidSupportLibraryVersion",
+            'media-compat'           : "com.android.support:support-media-compat:$androidSupportLibraryVersion",
+
+            //AndroidX
+            'appcompat-X'            : 'androidx.appcompat:appcompat:1.1.0',
+            'core-ktx'               : 'androidx.core:core-ktx:1.1.0',
+            'constraintlayout-X'     : 'androidx.constraintlayout:constraintlayout:1.1.3',
     ]
 
-    androidX = [
-            'core-ktx'              : 'androidx.core:core-ktx:1.1.0',
-            'appcompat'             : 'androidx.appcompat:appcompat:1.1.0',
-            'constraintlayout'      : 'androidx.constraintlayout:constraintlayout:1.1.3',
+    /**
+     * 新的support包转化，使用映射表和maven使用最新包
+     * androidX映射表: https://developer.android.google.cn/jetpack/androidx/migrate/artifact-mappings?hl=zh-cn
+     * maven地址: https://mvnrepository.com/
+     */
+    lifecycle = [
+            'livedata-core-X'       : "androidx.lifecycle:lifecycle-livedata-core:$arch_lifecycle_X",
+            'livedata-X'            : "androidx.lifecycle:lifecycle-livedata:$arch_lifecycle_X",
+            'extensions-X'          : "androidx.lifecycle:lifecycle-extensions:$arch_lifecycle_X",
+            'runtime-X'             : "androidx.lifecycle:lifecycle-runtime:$arch_lifecycle_X",
+            'compiler-X'            : "androidx.lifecycle:lifecycle-compiler:$arch_lifecycle_X",
+            'viewmodel-X'           : "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_lifecycle_X",
+            'common-java8-X'        : "androidx.lifecycle:lifecycle-common-java8:$arch_lifecycle_X",
+            'runtime-ktx-X'         : "androidx.lifecycle:lifecycle-runtime-ktx:$arch_lifecycle_X",
     ]
+
     tests = [
-            'test-junit'            : 'junit:junit:4.12',
-            'junit'                 : 'androidx.test.ext:junit:1.1.1',
-            'espresso-core'         : 'androidx.test.espresso:espresso-core:3.2.0',
-            'robolectric'           : 'org.robolectric:robolectric:3.8',
-            'robolectric-support'   : 'org.robolectric:shadows-supportv4:3.8',
-            'support-runner'        : 'com.android.support.test:runner:1.0.2',
-            'assertj'               : 'com.squareup.assertj:assertj-android:1.2.0'
+            'test-junit'         : 'junit:junit:4.12',
+            'junit'              : 'androidx.test.ext:junit:1.1.1',
+            'espresso-core'      : 'androidx.test.espresso:espresso-core:3.2.0',
+            'robolectric'        : 'org.robolectric:robolectric:3.8',
+            'robolectric-support': 'org.robolectric:shadows-supportv4:3.8',
+            'support-runner'     : 'com.android.support.test:runner:1.0.2',
+            'assertj'            : 'com.squareup.assertj:assertj-android:1.2.0'
     ]
-
 
     kotlin_libs = [
             'reflect'               : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
