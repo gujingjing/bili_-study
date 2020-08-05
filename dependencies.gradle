@@ -1,0 +1,67 @@
+//基础版本信息
+ext{
+    minSdkVersion = 17
+    targetSdkVersion = 28
+    compileSdkVersion = 29
+    buildToolsVersion = '29.0.2'
+
+    version_build_gradle = property('version_build_gradle').toString()
+    kotlin_version = property('version_kotlin').toString()
+    serialization_version = property('version_serialization').toString()
+
+    androidSupportLibraryVersion = '28.0.0'
+
+    //for test
+    testLibVersion = '1.5.4'
+}
+
+//项目使用包版本信息
+ext{
+    support = [
+            'v4'                    : "com.android.support:support-v4:$androidSupportLibraryVersion",
+            'annotations'           : "com.android.support:support-annotations:$androidSupportLibraryVersion",
+            'compat'                : "com.android.support:support-compat:$androidSupportLibraryVersion",
+            'appcompat'             : "com.android.support:appcompat-v7:$androidSupportLibraryVersion",
+            'gridlayout'            : "com.android.support:gridlayout-v7:$androidSupportLibraryVersion",
+            'recyclerview'          : "com.android.support:recyclerview-v7:$androidSupportLibraryVersion",
+            'design'                : "com.android.support:design:$androidSupportLibraryVersion",
+            'cardview'              : "com.android.support:cardview-v7:$androidSupportLibraryVersion",
+            'preference'            : "com.android.support:preference-v7:$androidSupportLibraryVersion",
+            'multidex'              : 'com.android.support:multidex:1.0.3',
+            'constraintlayout'      : 'com.android.support.constraint:constraint-layout:1.1.3',
+            'exifinterface'         : "com.android.support:exifinterface:$androidSupportLibraryVersion",
+            'testrunner'            : 'com.android.support.test:runner:1.0.2',
+            'dynamicanimation'      : "com.android.support:support-dynamic-animation:$androidSupportLibraryVersion",
+            'support-vector-drawable' : "com.android.support:support-vector-drawable:$androidSupportLibraryVersion",
+            'media-compat'          : "com.android.support:support-media-compat:$androidSupportLibraryVersion"
+    ]
+
+    androidX = [
+            'core-ktx'              : 'androidx.core:core-ktx:1.1.0',
+            'appcompat'             : 'androidx.appcompat:appcompat:1.1.0',
+            'constraintlayout'      : 'androidx.constraintlayout:constraintlayout:1.1.3',
+    ]
+    tests = [
+            'test-junit'            : 'junit:junit:4.12',
+            'junit'                 : 'androidx.test.ext:junit:1.1.1',
+            'espresso-core'         : 'androidx.test.espresso:espresso-core:3.2.0',
+            'robolectric'           : 'org.robolectric:robolectric:3.8',
+            'robolectric-support'   : 'org.robolectric:shadows-supportv4:3.8',
+            'support-runner'        : 'com.android.support.test:runner:1.0.2',
+            'assertj'               : 'com.squareup.assertj:assertj-android:1.2.0'
+    ]
+
+
+    kotlin_libs = [
+            'reflect'               : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
+            'stdlib'                : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            'stdlib-core'           : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            'test-junit'            : "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version",
+            'serialization-runtime' : "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
+    ]
+
+    thirdparty = [
+            'tae_utdid'             : 'com.taobao.tae:utdid4all:1.0.4',
+            ]
+}
+
