@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.gjj.framwork.utils.GLogger
 import com.gjj.framwork.utils.logDebug
+import com.gjj.framwork.utils.logInfo
 import kotlinx.android.synthetic.main.kotlin_coroutines_activity_kotlin_coroutines_test.*
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
@@ -20,13 +21,46 @@ class CoroutinesTestActivity : AppCompatActivity(), GLogger, CoroutineScope by M
         super.onCreate(savedInstanceState)
         setContentView(R.layout.kotlin_coroutines_activity_kotlin_coroutines_test)
 
+        logDebug { "main start" }
+
         asyncTime.setOnClickListener { getTimes() }
         asyncTime2.setOnClickListener {
             launch { getTimes2() }
-            launch { getTimes2() }
-//            mainScope.launch { getTimes2() }
 //            mainScope.launch { getTimes2() }
         }
+        asyncTime3.setOnClickListener { getTimes3() }
+        runBlock.setOnClickListener {
+            logDebug { "runBlock start" }
+            runBlock()
+            logDebug { "runBlock end" }
+        }
+        runBlock()
+        logDebug { "main end" }
+    }
+
+    private fun runBlock() = runBlocking {
+        delay(1000)
+        logDebug { "runBlock end time" }
+    }
+
+    /**
+     * 启动其他协程并不会挂起当前协程
+     */
+    private fun getTimes3() {
+        // 创建一个单线程的协程调度器，下面两个协程都运行在这同一线程上
+        val coroutineDispatcher = newSingleThreadContext("ctx")
+        // 启动协程 1
+        logDebug { "getTimes3 start 0" }
+        val one = async(coroutineDispatcher) {
+            delay(200)
+        }
+        // 启动协程 2
+        logDebug { "getTimes3 start 1" }
+        launch(coroutineDispatcher) {
+            delay(100)
+        }
+        logDebug { "getTimes3 start 2" }
+
     }
 
     private suspend fun getTimes2() = coroutineScope {
@@ -34,6 +68,7 @@ class CoroutinesTestActivity : AppCompatActivity(), GLogger, CoroutineScope by M
             blockTime(1000)
             logDebug { "one-firstTime" }
         }
+        one.await()
         val two = async {
             blockTime(2000)
             logDebug { "two-secondTime" }
@@ -51,8 +86,10 @@ class CoroutinesTestActivity : AppCompatActivity(), GLogger, CoroutineScope by M
             }
             val second = async {
                 blockTime(2000)
-                logDebug { "secondTime" }
+                logInfo { "secondTime" }
             }
+
+            val third = blockTime(2000)
         }
         logDebug { "allTime= $times" }
     }
@@ -70,5 +107,5 @@ class CoroutinesTestActivity : AppCompatActivity(), GLogger, CoroutineScope by M
     }
 
     override val logTag: String
-        get() = this::class.java.simpleName
+        get() = this::class.java.simpleName + "-"
 }

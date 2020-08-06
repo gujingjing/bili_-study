@@ -1,3 +1,4 @@
+include ':propertyDelegate'
 include ':app'
 rootProject.name = "BiStu"
 
@@ -12,6 +13,7 @@ rootProject.name = "BiStu"
  */
 def includeModules = [
         ':kotlin-coroutines': 'kotlin/coroutines',
+        ':kotlin-property'  : 'kotlin/propertyDelegate',
         ':framwork-utils'   : 'framwork/utils',
 ]
 
