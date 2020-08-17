@@ -32,6 +32,7 @@ dependencies {
 
     implementation support.'core-ktx'
     implementation support.'appcompat-X'
+    implementation support.recyclerview
     implementation support.'constraintlayout-X'
 
     //module

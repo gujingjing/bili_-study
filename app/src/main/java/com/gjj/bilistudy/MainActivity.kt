@@ -1,6 +1,5 @@
 package com.gjj.bilistudy
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.gjj.framwork.utils.launchActivity
@@ -13,8 +12,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.app_activity_main)
 
         //协程
-        kotlin_coroutine.setOnClickListener { launchActivity(this,CoroutinesTestActivity::class.java) }
+        kotlin_coroutine.setOnClickListener {
+            launchActivity(
+                this,
+                CoroutinesTestActivity::class.java
+            )
+        }
 
+        recyclerView_test.setOnClickListener {
+            launchActivity(
+                this,
+                RecyclerViewTestActivity::class.java
+            )
+        }
     }
+
 
 }
