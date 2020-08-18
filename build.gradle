@@ -13,13 +13,14 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/public/' }
         maven { url 'https://maven.aliyun.com/repository/google/'}
         maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+        maven { url 'file:///Users/gujingjing/gujingjing/github/bi_stu/repoLibs/' }
         mavenLocal()
         google()
         jcenter()
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$version_build_gradle"
+        classpath "com.android.tools.build:gradle:${version_build_gradle}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin"
     }
 }
@@ -29,6 +30,7 @@ allprojects {
         maven { url 'https://maven.aliyun.com/repository/public/' }
         maven { url 'https://maven.aliyun.com/repository/google/'}
         maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+        maven { url 'file:///Users/gujingjing/gujingjing/github/bi_stu/repoLibs/' }
         mavenLocal()
         google()
         jcenter()

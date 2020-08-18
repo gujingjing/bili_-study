@@ -38,6 +38,8 @@ dependencies {
     api kotlin_libs.'coroutines-android'
 
     //module
-    compileOnly project(':framwork-utils')
+    compileOnly framworkModule.utils
 
 }
+
+apply from: '../../local-push.gradle'

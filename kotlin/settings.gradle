@@ -1,4 +1,6 @@
 include ':coroutines'
+include ':propertyDelegate'
+
 rootProject.name = "kotlin"
 
 
@@ -9,8 +11,8 @@ def includeModules = [
 def rootDir = settingsDir
 //对应模块录取的不同之处
 def pathDiff = "../"
-includeModules.each { key, path ->
-    def modulePath = pathDiff + path
-    include key
-    project(key).projectDir = new File(rootDir, modulePath)
-}
+//includeModules.each { key, path ->
+//    def modulePath = pathDiff + path
+//    include key
+//    project(key).projectDir = new File(rootDir, modulePath)
+//}

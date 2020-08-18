@@ -36,6 +36,6 @@ dependencies {
     implementation support.'constraintlayout-X'
 
     //module
-    implementation project(':kotlin-coroutines')
-    implementation project(':framwork-utils')
+    implementation framworkModule.utils
+    implementation kotlinModule.coroutines
 }

@@ -34,3 +34,8 @@ dependencies {
     implementation support.'appcompat-X'
     implementation support.'constraintlayout-X'
 }
+
+//apply from: 'local-push.gradle'
+apply from: '../../local-push.gradle'
+
+

@@ -14,10 +14,23 @@ ext{
 
     //for test
     testLibVersion = '1.5.4'
+
+    //module
+    framwork_utils = '0.0.1'
+    kotlin_coroutines = '0.0.1'
 }
 
 //项目使用包版本信息
 ext{
+
+    framworkModule = [
+            'utils'                  : "com.gjj.framwork:utils:$framwork_utils"
+    ]
+
+    kotlinModule = [
+            'coroutines'             : "com.gjj.kotlin:coroutines:$kotlin_coroutines"
+    ]
+
     support = [
             'v4'                     : "com.android.support:support-v4:$androidSupportLibraryVersion",
             'annotations'            : "com.android.support:support-annotations:$androidSupportLibraryVersion",

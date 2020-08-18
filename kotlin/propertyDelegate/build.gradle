@@ -35,6 +35,6 @@ dependencies {
     implementation support.'constraintlayout-X'
     
     //module
-    compileOnly project(':framwork-utils')
+    compileOnly framworkModule.utils
 
 }

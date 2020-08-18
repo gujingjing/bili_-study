@@ -5,8 +5,10 @@ apply from: rootDependencies
 
 buildscript {
     repositories {
+        maven { url 'file:///Users/gujingjing/gujingjing/github/bi_stu/repoLibs/' }
         google()
         jcenter()
+        mavenLocal()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.0"
@@ -16,8 +18,10 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'file:///Users/gujingjing/gujingjing/github/bi_stu/repoLibs/' }
         google()
         jcenter()
+        mavenLocal()
     }
 }
 
