@@ -1,4 +1,4 @@
-package com.gjj.bilistudy
+package com.gjj.test
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ class MainTestAdapter(val data: List<String>) : RecyclerView.Adapter<RecyclerVie
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.app_item_recycler_view_test, parent, false)
+            .inflate(R.layout.item_recycler_view_test, parent, false)
         return object : RecyclerView.ViewHolder(view) {}
     }
 

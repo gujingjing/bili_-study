@@ -1,9 +1,9 @@
-package com.gjj.bilistudy
+package com.gjj.test
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.app_activity_recycler_view_test.*
+import kotlinx.android.synthetic.main.activity_recycler_view_test.*
 
 /**
  * author: gujingjing
@@ -14,7 +14,7 @@ class RecyclerViewTestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.app_activity_recycler_view_test)
+        setContentView(R.layout.activity_recycler_view_test)
 
         initRecyclerView()
     }

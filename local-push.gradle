@@ -1,0 +1,12 @@
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: LOCAL_REPO_URL)
+        pom.groupId = GROUP_ID
+        pom.artifactId = ARTIFACTID
+        pom.version = LIBRARY_VERSION
+    }
+}
+//./gradlew -p  clean build uploadArchives --info
+//./gradlew -p utils clean build uploadArchives --info
