@@ -1,3 +1,13 @@
-include ':test'
+include ':app'
 include ':flutterlib'
 rootProject.name = "gflutter"
+
+Properties lp = new Properties()
+lp.load(new InputStreamReader(new File('gradle.properties').newInputStream()))
+
+boolean flutterDebug = Boolean.parseBoolean(lp.getProperty('project.flutterDebug', 'false'))
+if (flutterDebug) {
+    String flutterProjectPath = lp.getProperty('localFlutterPath', '')
+    setBinding(new Binding([gradle: this]))
+    evaluate(new File(flutterProjectPath))
+}
