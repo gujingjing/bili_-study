@@ -31,6 +31,10 @@ ext{
             'coroutines'             : "com.gjj.kotlin:coroutines:$kotlin_coroutines"
     ]
 
+    flutterModule = [
+            'coroutines'             : "com.gjj.flutter:flutterlib:$kotlin_coroutines"
+    ]
+
     support = [
             'v4'                     : "com.android.support:support-v4:$androidSupportLibraryVersion",
             'annotations'            : "com.android.support:support-annotations:$androidSupportLibraryVersion",

@@ -6,7 +6,8 @@ rootProject.name = "BiStu"
  */
 def compositeBuilds = [
         'kotlin',
-        'framwork'
+        'framwork',
+        'gflutter'
 ]
 
 compositeBuilds.findAll { file(it).directory }.each { includeBuild(it) }
