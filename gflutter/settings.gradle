@@ -1,13 +1,15 @@
+import java.nio.charset.StandardCharsets
+
 include ':app'
 include ':flutterlib'
 rootProject.name = "gflutter"
 
 Properties lp = new Properties()
-lp.load(new InputStreamReader(new File('gradle.properties').newInputStream()))
+lp.load(new InputStreamReader(new File(settingsDir.path,'gradle.properties').newInputStream(), StandardCharsets.UTF_8))
 
 boolean flutterDebug = Boolean.parseBoolean(lp.getProperty('project.flutterDebug', 'false'))
 if (flutterDebug) {
-    String flutterProjectPath = lp.getProperty('localFlutterPath', '')
+    String flutterProjectPath = lp.getProperty('project.localFlutterPath', '')
     setBinding(new Binding([gradle: this]))
-    evaluate(new File(flutterProjectPath))
+    evaluate(new File(settingsDir.path,flutterProjectPath))
 }

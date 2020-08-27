@@ -40,3 +40,5 @@ def pathDiff = ""
 //    include key
 //    project(key).projectDir = new File(rootDir, modulePath)
 //}
+
+include ':myflutter'

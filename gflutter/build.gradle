@@ -3,6 +3,10 @@ def rootDependencies = file('../dependencies.gradle')
 if (!rootDependencies.exists()) throw new GradleException('unexpected behavior!')
 apply from: rootDependencies
 
+ext{
+    flutterDebug = property('project.flutterDebug')
+}
+
 buildscript {
     ext {
         kotlin_version = '1.3.72'
@@ -13,11 +17,6 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/jcenter/'}
         maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
 
-        maven { url 'file:///Users/gujingjing/gujingjing/github/bi_stu/repoLibs/' }
-        //flutter
-        maven {
-            url '/Users/gujingjing/gujingjing/github/bi_stu/myflutter/build/host/outputs/repo'
-        }
         //清华大学flutter镜像
         maven { url 'https://mirrors.tuna.tsinghua.edu.cn/flutter/download.flutter.io' }
 
@@ -28,24 +27,25 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72"
     }
 }
-
+//module repo path
+def localModelRepoPath="$rootProject.projectDir.absolutePath/../repoLibs/"
+//flutter repo
+def flutterRepoPath="$rootProject.projectDir.absolutePath/../myflutter/build/host/outputs/repo/"
 allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/public/' }
         maven { url 'https://maven.aliyun.com/repository/google/'}
         maven { url 'https://maven.aliyun.com/repository/jcenter/'}
         maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
-
-        maven { url 'file:///Users/gujingjing/gujingjing/github/bi_stu/repoLibs/' }
-        //flutter
-        maven {
-            url '/Users/gujingjing/gujingjing/github/bi_stu/myflutter/build/host/outputs/repo'
+        //module
+        maven { url localModelRepoPath }
+        if(!flutterDebug){
+            //flutter
+            maven { url flutterRepoPath }
         }
         //清华大学flutter镜像
         maven { url 'https://mirrors.tuna.tsinghua.edu.cn/flutter/download.flutter.io' }
 
-//        google()
-//        jcenter()
         mavenLocal()
     }
 }

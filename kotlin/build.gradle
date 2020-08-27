@@ -5,9 +5,9 @@ apply from: rootDependencies
 
 buildscript {
     repositories {
-        maven { url 'file:///Users/gujingjing/gujingjing/github/bi_stu/repoLibs/' }
-        google()
-        jcenter()
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/'}
+        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
         mavenLocal()
     }
     dependencies {
@@ -16,11 +16,14 @@ buildscript {
     }
 }
 
+//module repo path
+def localModelRepoPath="$rootProject.projectDir.absolutePath/../repoLibs/"
 allprojects {
     repositories {
-        maven { url 'file:///Users/gujingjing/gujingjing/github/bi_stu/repoLibs/' }
-        google()
-        jcenter()
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/'}
+        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+        maven { url localModelRepoPath }
         mavenLocal()
     }
 }
