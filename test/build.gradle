@@ -6,6 +6,11 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    
     defaultConfig {
         applicationId "com.gjj.test"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -30,9 +35,9 @@ dependencies {
     implementation kotlin_libs.'serialization-runtime'
 
     implementation support.'core-ktx'
-    implementation support.'appcompat-X'
+    implementation support.'appcompat'
     implementation support.recyclerview
-    implementation support.'constraintlayout-X'
+    implementation support.'constraintlayout'
 
     //module
     implementation framworkModule.utils

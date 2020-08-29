@@ -36,27 +36,26 @@ ext{
     ]
 
     support = [
-            'v4'                     : "com.android.support:support-v4:$androidSupportLibraryVersion",
-            'annotations'            : "com.android.support:support-annotations:$androidSupportLibraryVersion",
-            'compat'                 : "com.android.support:support-compat:$androidSupportLibraryVersion",
-            'appcompat'              : "com.android.support:appcompat-v7:$androidSupportLibraryVersion",
-            'gridlayout'             : "com.android.support:gridlayout-v7:$androidSupportLibraryVersion",
-            'recyclerview'           : 'androidx.recyclerview:recyclerview:1.1.0',
-            'design'                 : "com.android.support:design:$androidSupportLibraryVersion",
-            'cardview'               : "com.android.support:cardview-v7:$androidSupportLibraryVersion",
-            'preference'             : "com.android.support:preference-v7:$androidSupportLibraryVersion",
-            'multidex'               : 'com.android.support:multidex:1.0.3',
-            'constraintlayout'       : 'com.android.support.constraint:constraint-layout:1.1.3',
-            'exifinterface'          : "com.android.support:exifinterface:$androidSupportLibraryVersion",
-            'testrunner'             : 'com.android.support.test:runner:1.0.2',
-            'dynamicanimation'       : "com.android.support:support-dynamic-animation:$androidSupportLibraryVersion",
-            'support-vector-drawable': "com.android.support:support-vector-drawable:$androidSupportLibraryVersion",
-            'media-compat'           : "com.android.support:support-media-compat:$androidSupportLibraryVersion",
-
-            //AndroidX
-            'appcompat-X'            : 'androidx.appcompat:appcompat:1.1.0',
-            'core-ktx'               : 'androidx.core:core-ktx:1.1.0',
-            'constraintlayout-X'     : 'androidx.constraintlayout:constraintlayout:1.1.3',
+            'v4'                    : "androidx.legacy:legacy-support-v4:1.0.0",
+            'annotations'           : "androidx.annotation:annotation:1.1.0",
+            'compat'                : "androidx.core:core:1.1.0",
+            'appcompat'             : 'androidx.appcompat:appcompat:1.1.0',
+            'gridlayout'            : 'androidx.gridlayout:gridlayout:1.0.0',
+            'recyclerview'          : 'androidx.recyclerview:recyclerview:1.1.0',
+            'design'                : "com.google.android.material:material:1.1.0",
+            'cardview'              : "androidx.cardview:cardview:1.0.0",
+            'preference'            : "androidx.preference:preference:1.1.0",
+            'multidex'              : 'androidx.multidex:multidex:2.0.0',
+            'constraintlayout'      : 'androidx.constraintlayout:constraintlayout:1.1.3',
+            'exifinterface'         : "androidx.exifinterface:exifinterface:1.1.0",
+            'testrunner'            : 'androidx.test:runner:1.1.0',
+            'dynamicanimation'      : "androidx.dynamicanimation:dynamicanimation:1.0.0",
+            'support-vector-drawable' : "androidx.vectordrawable:vectordrawable:1.1.0",
+            'media-compat'          : "androidx.media:media:1.1.0",
+            'swiperefreshlayout'    : 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0',
+            'collection'            : 'androidx.collection:collection:1.0.0',
+            'coordinatorlayout'     : 'androidx.coordinatorlayout:coordinatorlayout:1.1.0',
+            'core-ktx'              : 'androidx.core:core-ktx:1.1.0'
     ]
 
     /**

@@ -31,8 +31,8 @@ dependencies {
     implementation kotlin_libs.'serialization-runtime'
 
     implementation support.'core-ktx'
-    implementation support.'appcompat-X'
-    implementation support.'constraintlayout-X'
+    implementation support.'appcompat'
+    implementation support.'constraintlayout'
 }
 
 //apply from: 'local-push.gradle'
