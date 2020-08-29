@@ -42,7 +42,7 @@ dependencies {
 
     //flutter-sdk
     if (flutterDebug) {
-        implementation project(':flutter')
+        api project(':flutter')
     } else {
         debugImplementation 'com.gjj.flutter.myflutter:flutter_debug:1.0'
         profileImplementation 'com.gjj.flutter.myflutter:flutter_profile:1.0'

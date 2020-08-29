@@ -8,7 +8,7 @@ import io.flutter.embedding.android.FlutterActivity
  * description:
  */
 open class BaseFlutterActivity : FlutterActivity() {
-
+    
     companion object {
         val FlutterRouterPath = "FlutterRouterPath"
     }
