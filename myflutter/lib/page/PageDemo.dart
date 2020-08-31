@@ -4,10 +4,12 @@ import 'package:flutter/services.dart';
 class PageDemo extends StatelessWidget{
 
   static const MethodChannel _channel = MethodChannel("gjj.flutter.util");
+  static const MethodChannel _testChannel = MethodChannel("flutter_plugin_test_new");
 
   void toast(){
     print("PageDemo-toast");
-    _channel.invokeMethod("toast",{"msg": "msg", "type": ""});
+    // _channel.invokeMethod("toast",{"msg": "msg", "type": ""});
+    _testChannel.invokeMethod("testPlugin");
   }
 
 

@@ -12,7 +12,8 @@ import 'package:myflutter/router/Routers.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   initialize();
-  runApp(FluroApp());
+  // runApp(FluroApp());
+  runApp(MainApp());
 }
 
 void initialize(){

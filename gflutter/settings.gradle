@@ -13,3 +13,6 @@ if (flutterDebug) {
     setBinding(new Binding([gradle: this]))
     evaluate(new File(settingsDir.path,flutterProjectPath))
 }
+
+include ':myflutter'
+project(':myflutter').projectDir = new File('../myflutter')

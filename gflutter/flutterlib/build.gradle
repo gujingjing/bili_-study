@@ -44,9 +44,9 @@ dependencies {
     if (flutterDebug) {
         api project(':flutter')
     } else {
-        debugImplementation 'com.gjj.flutter.myflutter:flutter_debug:1.0'
-        profileImplementation 'com.gjj.flutter.myflutter:flutter_profile:1.0'
-        releaseImplementation 'com.gjj.flutter.myflutter:flutter_release:1.0'
+        debugApi 'com.gjj.flutter.myflutter:flutter_debug:1.0'
+        profileApi 'com.gjj.flutter.myflutter:flutter_profile:1.0'
+        releaseApi 'com.gjj.flutter.myflutter:flutter_release:1.0'
     }
     //flutter_boost
 //    implementation project(':flutter_boost')

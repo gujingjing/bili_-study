@@ -3,8 +3,8 @@ def rootDependencies = file('../dependencies.gradle')
 if (!rootDependencies.exists()) throw new GradleException('unexpected behavior!')
 apply from: rootDependencies
 
-ext{
-    flutterDebug = property('project.flutterDebug')
+ext {
+    flutterDebug = Boolean.parseBoolean(property('project.flutterDebug'))
 }
 
 buildscript {
@@ -13,9 +13,9 @@ buildscript {
     }
     repositories {
         maven { url 'https://maven.aliyun.com/repository/public/' }
-        maven { url 'https://maven.aliyun.com/repository/google/'}
-        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
-        maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
 
         //清华大学flutter镜像
         maven { url 'https://mirrors.tuna.tsinghua.edu.cn/flutter/download.flutter.io' }
@@ -28,18 +28,18 @@ buildscript {
     }
 }
 //module repo path
-def localModelRepoPath="$rootProject.projectDir.absolutePath/../repoLibs/"
+def localModelRepoPath = "$rootProject.projectDir.absolutePath/../repoLibs/"
 //flutter repo
-def flutterRepoPath="$rootProject.projectDir.absolutePath/../myflutter/build/host/outputs/repo/"
+def flutterRepoPath = "$rootProject.projectDir.absolutePath/../myflutter/build/host/outputs/repo/"
 allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/public/' }
-        maven { url 'https://maven.aliyun.com/repository/google/'}
-        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
-        maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         //module
         maven { url localModelRepoPath }
-        if(!flutterDebug){
+        if (!flutterDebug) {
             //flutter
             maven { url flutterRepoPath }
         }
