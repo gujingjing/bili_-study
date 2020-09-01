@@ -2,7 +2,6 @@ package com.gjj.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.gjj.flutterlib.FlutterDemoPage1
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,13 +12,18 @@ class MainActivity : AppCompatActivity() {
 
         flutter1.setOnClickListener { jumpFlutterPage1() }
         flutter2.setOnClickListener { jumpFlutterPage2() }
+        flutter3.setOnClickListener { jumpFlutterPage3() }
     }
 
     private fun jumpFlutterPage1() {
-        FlutterDemoPage1.intentNew(this)
+        FlutterDemoActivity1.intentNew(this)
     }
 
     private fun jumpFlutterPage2() {
-        FlutterDemoPage1.intentCache(this)
+        FlutterDemoActivity1.intentCache(this)
+    }
+
+    private fun jumpFlutterPage3() {
+        FlutterDemoFragment1.intentNew(this)
     }
 }

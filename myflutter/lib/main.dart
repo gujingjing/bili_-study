@@ -1,23 +1,22 @@
-import 'dart:ui' as ui;
+import 'dart:io';
 import 'dart:ui';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:myflutter/channel/channel_const.dart';
-import 'package:myflutter/main_fluro.dart';
-import 'package:myflutter/main_flutter_boost.dart';
-import 'package:myflutter/page/DefaultPage.dart';
-import 'package:myflutter/page/HomePage.dart';
-import 'package:myflutter/page/PageDemo.dart';
 import 'package:myflutter/router/Routers.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   _initialize();
-  // runApp(FluroApp());
   runApp(MainApp());
 }
 
 void _initialize(){
+  if(Platform.isAndroid){
+    //设置沉浸式
+    SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
   Routers.init();
   //channel 初始化
   for (var channel in CHANNEL_LIST) {
@@ -38,16 +37,7 @@ class _MainAppState extends State<MainApp>{
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Boost example',
-        home: _widgetRoute(window.defaultRouteName)
+        home: Routers.parseUriPage(context,window.defaultRouteName)
     );
-  }
-}
-
-Widget _widgetRoute(String defaultRouteName) {
-  switch(defaultRouteName){
-    case Routers.Demo1:
-      return PageDemo();
-    default:
-      return HomePage();
   }
 }

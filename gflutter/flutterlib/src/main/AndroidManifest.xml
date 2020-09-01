@@ -10,11 +10,12 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".FlutterDemoPage1"
+            android:name="com.gjj.flutterlib.BaseFlutterActivity"
             android:theme="@style/MyTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize" />
+
 
     </application>
 </manifest>

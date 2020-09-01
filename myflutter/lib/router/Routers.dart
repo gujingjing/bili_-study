@@ -28,6 +28,21 @@ class Routers {
     router.notFoundHandler = noFoundPage;
   }
 
+  static Widget parseUriPage(BuildContext context, String routeUri, {Widget defaultPage}) {
+    //非正式环境进入测试界面
+    if (!bool.fromEnvironment("dart.vm.product")) {
+      // defaultPage = QtTestPage();
+    }
+    var uri = Uri.parse(routeUri);
+    var handler = router.match(uri.path)?.route?.handler ?? null;
+    if (handler != null && handler is Handler) {
+      return handler.handlerFunc(
+          context, uri.queryParametersAll ?? new Map<String, List<String>>());
+    } else {
+      return defaultPage;
+    }
+  }
+
   ///路由跳转
   ///可使用then链式调用获取页面关闭结果 ,例: Navigator.of(context).pop('xxx')
   static Future navigateTo(BuildContext context, String path,

@@ -4,23 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:fitsSystemWindows="false"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/flutter1"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:padding="10dp"
         android:layout_height="wrap_content"
+        style="@style/button_default_style"
         android:text="jump flutter page" />
 
     <TextView
         android:id="@+id/flutter2"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:padding="10dp"
         android:layout_height="wrap_content"
+        style="@style/button_default_style"
         android:text="jump flutter page with cache" />
+
+    <TextView
+        android:id="@+id/flutter3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/button_default_style"
+        android:text="jump flutter fragment page 1" />
 
 
 </LinearLayout>
