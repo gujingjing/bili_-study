@@ -4,14 +4,14 @@
     <application>
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"
-            android:theme="@style/MyTheme"
+            android:theme="@style/flutter_transparent"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name="com.gjj.flutterlib.BaseFlutterActivity"
-            android:theme="@style/MyTheme"
+            android:theme="@style/flutter_transparent"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize" />

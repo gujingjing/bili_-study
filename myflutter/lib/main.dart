@@ -37,7 +37,8 @@ class _MainAppState extends State<MainApp>{
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Boost example',
-        home: Routers.parseUriPage(context,window.defaultRouteName)
+        home: Routers.parseUriPage(context,window.defaultRouteName),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

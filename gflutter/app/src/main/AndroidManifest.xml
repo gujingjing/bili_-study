@@ -20,14 +20,14 @@
 
         <activity
             android:name=".FlutterDemoActivity1"
-            android:theme="@style/MyTheme"
+            android:theme="@style/flutter_transparent"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".FlutterDemoFragment1"
-            android:theme="@style/MyTheme"
+            android:theme="@style/flutter_transparent"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize" />
