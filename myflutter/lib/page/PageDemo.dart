@@ -1,40 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:myflutter/channel/backpress/channel_backpress.dart';
+import 'package:myflutter/channel/toast/channel_toast.dart';
 
-class PageDemo extends StatelessWidget{
-
-  static const MethodChannel _channel = MethodChannel("gjj.flutter.util");
-  static const MethodChannel _testChannel = MethodChannel("flutter_plugin_test_new");
-
-  void toast(){
+class PageDemo extends StatelessWidget {
+  void toast() {
     print("PageDemo-toast");
-    // _channel.invokeMethod("toast",{"msg": "msg", "type": ""});
-    _testChannel.invokeMethod("testPlugin");
+    GToast.instance().toast("测试toast");
   }
 
+  void closePage() {
+    print("PageDemo-closePage");
+    GBack.instance().closePage();
+  }
+
+  void backPress(BuildContext buildContext) {
+    print("PageDemo-backPress");
+    GBack.instance().backPress(buildContext);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("PageDemo1"),
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            size: 20,
+        appBar: AppBar(
+          title: Text("PageDemo1"),
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              size: 20,
+            ),
+            onPressed: () {
+              backPress(context);
+            },
           ),
-          onPressed: () {
-            Navigator.pop(context); // 关闭当前页面
-          },
         ),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: Text("点击toast"),
-          onPressed: toast,
-        )
-      ),
-    );
+        body: Column(
+          children: [
+            RaisedButton(
+              child: Text("点击toast"),
+              onPressed: toast,
+            ),
+            RaisedButton(
+              child: Text("回退"),
+              onPressed: (){
+                backPress(context);
+              },
+            ),
+            RaisedButton(
+              child: Text("关闭当前页面"),
+              onPressed: closePage,
+            ),
+          ],
+        ));
   }
-
 }

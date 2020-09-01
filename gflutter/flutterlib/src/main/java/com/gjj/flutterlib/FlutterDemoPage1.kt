@@ -2,9 +2,8 @@ package com.gjj.flutterlib
 
 import android.content.Context
 import com.gjj.flutterlib.engine.GFlutterEngineManager
-import com.gjj.flutterlib.plugin.TestPlugin
-import com.gjj.flutterlib.plugin.TestPlugin1
-import io.flutter.embedding.android.FlutterActivity
+import com.gjj.flutterlib.plugin.back.BackPlugin
+import com.gjj.flutterlib.plugin.toast.ToastPlugin
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs
 import io.flutter.embedding.engine.FlutterEngine
 import router.Flutter_Demo_Path
@@ -14,14 +13,12 @@ import router.Flutter_Demo_Path
  * created on: 2020/8/27 11:50 AM
  * description:
  */
-class FlutterDemoPage1 : FlutterActivity() {
+class FlutterDemoPage1 : BaseFlutterActivity() {
 
-    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
-        super.configureFlutterEngine(flutterEngine)
-        flutterEngine.plugins.add(TestPlugin())
-        flutterEngine.plugins.add(TestPlugin1())
-
-//        GeneratedPluginRegistrant.registerWith(flutterEngine)
+    override fun initFlutter(flutterEngine: FlutterEngine) {
+        super.initFlutter(flutterEngine)
+        flutterEngine.plugins.add(ToastPlugin(this))
+        flutterEngine.plugins.add(BackPlugin(this))
     }
 
     companion object {

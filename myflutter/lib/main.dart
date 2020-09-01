@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 import 'dart:ui';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:myflutter/channel/channel_const.dart';
 import 'package:myflutter/main_fluro.dart';
 import 'package:myflutter/main_flutter_boost.dart';
 import 'package:myflutter/page/DefaultPage.dart';
@@ -11,13 +12,17 @@ import 'package:myflutter/router/Routers.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  initialize();
+  _initialize();
   // runApp(FluroApp());
   runApp(MainApp());
 }
 
-void initialize(){
+void _initialize(){
   Routers.init();
+  //channel 初始化
+  for (var channel in CHANNEL_LIST) {
+    channel.init();
+  }
 }
 
 class MainApp extends StatefulWidget{

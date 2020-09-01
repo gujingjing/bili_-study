@@ -1,8 +1,9 @@
-package com.gjj.flutterlib.channel
+package com.gjj.flutterlib.plugin.base
 
 import androidx.annotation.UiThread
 import com.gjj.framwork.utils.GLogger
 import com.gjj.framwork.utils.logInfo
+import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.FlutterPlugin.FlutterPluginBinding
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
@@ -40,8 +41,12 @@ abstract class BaseMethodChannel(binaryMessenger: BinaryMessenger) : GLogger {
         }
     }
 
-    fun addInterceptor(key: String, interceptor: MethodInterceptor) {
-        interceptors[key] = interceptor
+    fun addInterceptor(interceptor: MethodInterceptor) {
+        if (interceptors[interceptor.methodName] != null) {
+            //TODO debug throw
+            return
+        }
+        interceptors[interceptor.methodName] = interceptor
     }
 
     fun addInterceptors(interceptors: MutableMap<String, MethodInterceptor>) {
@@ -59,10 +64,18 @@ abstract class BaseMethodChannel(binaryMessenger: BinaryMessenger) : GLogger {
     }
 
     //对标FlutterPlugin中的onDetachedFromEngine时机
-    open fun onDetachedFromEngine(binding: FlutterPluginBinding) {}
+    open fun onDetachedFromEngine(binding: FlutterPluginBinding) {
+//        methodChannel.setMethodCallHandler(null)
+    }
 
+}
+
+abstract class MethodChannelFactory {
+    abstract val channelName: String
+    abstract fun createChannel(binding: FlutterPlugin.FlutterPluginBinding): BaseMethodChannel
 }
 
 interface MethodInterceptor {
     fun onIntercept(methodCall: MethodCall, result: MethodChannel.Result): Boolean
+    val methodName: String
 }

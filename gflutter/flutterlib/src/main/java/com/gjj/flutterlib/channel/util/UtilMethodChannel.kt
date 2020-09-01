@@ -1,7 +1,7 @@
 package com.gjj.flutterlib.channel.util
 
 import android.content.Context
-import com.gjj.flutterlib.channel.BaseMethodChannel
+import com.gjj.flutterlib.plugin.base.BaseMethodChannel
 import io.flutter.plugin.common.BinaryMessenger
 
 /**
@@ -14,7 +14,7 @@ class UtilMethodChannel(context: Context, binaryMessenger: BinaryMessenger) : Ba
     override val channelName: String = CHANNEL_NAME
 
     init {
-        addInterceptor(METHOD_NAME_TOAST, ToastMethodInterceptor(context))
+        addInterceptor(ToastMethodInterceptor(context))
     }
 
     companion object {
