@@ -15,12 +15,11 @@ open abstract class BaseSinglePlugin(private val channelName: String) : FlutterP
 
     var channel: MethodChannel? = null
 
-    private val methodHandle = object : MethodChannel.MethodCallHandler {
-        override fun onMethodCall(method: MethodCall, result: MethodChannel.Result) {
+    private val methodHandle =
+        MethodChannel.MethodCallHandler { method, result ->
             logInfo { "onMethodCall- method=${method.method}" }
             callMethod(method, result)
         }
-    }
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(binding.binaryMessenger, channelName)

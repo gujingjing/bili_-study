@@ -18,6 +18,11 @@ class PageDemo extends StatelessWidget {
     GBack.instance().backPress(buildContext);
   }
 
+  void featureRequest() {
+    print("PageDemo-featureRequest");
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +53,10 @@ class PageDemo extends StatelessWidget {
             RaisedButton(
               child: Text("关闭当前页面"),
               onPressed: closePage,
+            ),
+            RaisedButton(
+              child: Text("异步请求"),
+              onPressed: featureRequest,
             ),
           ],
         ));

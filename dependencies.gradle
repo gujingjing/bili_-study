@@ -18,6 +18,9 @@ ext{
     //module
     framwork_utils = '0.0.1'
     kotlin_coroutines = '0.0.1'
+
+    //third
+    dokit = '3.2.0'
 }
 
 //项目使用包版本信息
@@ -96,6 +99,9 @@ ext{
 
     thirdparty = [
             'tae_utdid'             : 'com.taobao.tae:utdid4all:1.0.4',
+            'dokit-debug'           : "com.didichuxing.doraemonkit:doraemonkit:$dokit",
+            'dokit-release'         : "com.didichuxing.doraemonkit:doraemonkit-no-op:$dokit",
+            'dokit-leakcanary'      : "com.didichuxing.doraemonkit:doraemonkit-leakcanary:$dokit"
             ]
 }
 

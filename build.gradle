@@ -18,6 +18,10 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:${version_build_gradle}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$version_kotlin"
+        //didi dokit
+        classpath 'com.didichuxing.doraemonkit:doraemonkit-plugin:3.2.0'
+        //hugo
+        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
     }
 }
 
