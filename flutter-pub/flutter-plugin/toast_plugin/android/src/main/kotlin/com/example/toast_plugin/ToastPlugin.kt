@@ -18,7 +18,8 @@ public class ToastPlugin : FlutterPlugin, MethodCallHandler {
     private var context: Context? = null
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "toast_plugin")
+        channel =
+            MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "toast_plugin")
         context = flutterPluginBinding.applicationContext
         channel.setMethodCallHandler(this);
     }
@@ -37,7 +38,16 @@ public class ToastPlugin : FlutterPlugin, MethodCallHandler {
                 result.success("Android ${android.os.Build.VERSION.RELEASE}")
             }
             "toast" -> {
-                context?.let { Toast.makeText(it, "toast-测试", Toast.LENGTH_LONG).show() }
+                context?.let {
+                    val msg: String? = call.argument("msg")
+                    val type: Int = call.argument("type") ?: Toast.LENGTH_SHORT
+                    if (msg.isNullOrEmpty()) {
+                        result.error(ChannelCode.PARAM_ERROR, "toast msg is empty", null)
+                    } else {
+                        Toast.makeText(context, msg, type).show()
+                        result.success("success")
+                    }
+                }
             }
             else -> {
                 result.notImplemented()

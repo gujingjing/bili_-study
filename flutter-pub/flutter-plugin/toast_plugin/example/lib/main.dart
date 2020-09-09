@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:toast_plugin/toast_plugin.dart';
 
@@ -16,9 +16,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
 
-
-  _onPress(){
-    ToastPlugin.toast();
+  _onPress() {
+    ToastPlugin().toast("测试-toast");
   }
 
   @override
@@ -51,21 +50,20 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Column(
-          children: [
-            Center(
-              child: Text('Running on: $_platformVersion\n'),
-            ),
-            RaisedButton(
-              child: Text("测试toast"),
-              onPressed: _onPress,
-            )
-          ],
-        )
-      ),
+          appBar: AppBar(
+            title: const Text('Plugin example app'),
+          ),
+          body: Column(
+            children: [
+              Center(
+                child: Text('Running on: $_platformVersion\n'),
+              ),
+              RaisedButton(
+                child: Text("测试toast"),
+                onPressed: _onPress,
+              )
+            ],
+          )),
     );
   }
 }

@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  gflutter_interface:
+    path: ../../flutter-packages/gflutter_interface
 
 dev_dependencies:
   flutter_test:

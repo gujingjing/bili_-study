@@ -32,7 +32,7 @@ dependencies:
 
   cupertino_icons: ^0.1.3
   toast_plugin:
-    path: ../flutter-plugin/toast_plugin
+    path: ../flutter-pub/flutter-plugin/toast_plugin
 
 dev_dependencies:
   flutter_test:
