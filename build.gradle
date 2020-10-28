@@ -8,9 +8,11 @@ if (file('dependencies.gradle').exists()) {
 buildscript {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/public/' }
-        maven { url 'https://maven.aliyun.com/repository/google/'}
-        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter/' }
         mavenLocal()
+        //rxjava
+        maven { url 'https://oss.jfrog.org/libs-snapshot' }
         google()
         jcenter()
     }
@@ -26,13 +28,15 @@ buildscript {
 }
 
 //module repo path
-def localModelRepoPath="$rootProject.projectDir.absolutePath/repoLibs/"
+def localModelRepoPath = "$rootProject.projectDir.absolutePath/repoLibs/"
 allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/public/' }
-        maven { url 'https://maven.aliyun.com/repository/google/'}
-        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter/' }
         maven { url localModelRepoPath }
+        //rxjava
+        maven { url 'https://oss.jfrog.org/libs-snapshot' }
         mavenLocal()
         google()
         jcenter()

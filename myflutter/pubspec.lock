@@ -90,6 +90,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  gflutter_interface:
+    dependency: transitive
+    description:
+      path: "../flutter-pub/flutter-packages/gflutter_interface"
+      relative: true
+    source: path
+    version: "0.0.1"
   http_parser:
     dependency: transitive
     description:
@@ -168,7 +175,7 @@ packages:
   toast_plugin:
     dependency: "direct main"
     description:
-      path: "../flutter-plugin/toast_plugin"
+      path: "../flutter-pub/flutter-plugin/toast_plugin"
       relative: true
     source: path
     version: "0.0.1"

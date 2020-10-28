@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.didi.dokit'
 apply plugin: 'com.jakewharton.hugo'
 
@@ -12,7 +13,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    
+
     defaultConfig {
         applicationId "com.gjj.test"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -20,7 +21,15 @@ android {
         versionCode 1
         versionName "1.0"
 
+        multiDexEnabled true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -37,14 +46,20 @@ dependencies {
     implementation kotlin_libs.'serialization-runtime'
 
     implementation support.'core-ktx'
+    implementation support.multidex
     implementation support.'appcompat'
     implementation support.recyclerview
     implementation support.'constraintlayout'
 
     //third
     debugImplementation thirdparty.'dokit-debug'
+    debugImplementation thirdparty.'leakcanary-android'
 //    debugImplementation thirdparty.'dokit-leakcanary'
     releaseImplementation thirdparty.'dokit-release'
+    implementation thirdparty.'arouter-api'
+    kapt thirdparty.'arouter-compiler'
+    implementation thirdparty.rxJava2
+    implementation thirdparty.rxAndroid2
 
     //module
     implementation framworkModule.utils

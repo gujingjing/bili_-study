@@ -42,7 +42,7 @@ public class ToastPlugin : FlutterPlugin, MethodCallHandler {
                     val msg: String? = call.argument("msg")
                     val type: Int = call.argument("type") ?: Toast.LENGTH_SHORT
                     if (msg.isNullOrEmpty()) {
-                        result.error(ChannelCode.PARAM_ERROR, "toast msg is empty", null)
+//                        result.error(ChannelCode.PARAM_ERROR, "toast msg is empty", null)
                     } else {
                         Toast.makeText(context, msg, type).show()
                         result.success("success")
