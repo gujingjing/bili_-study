@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 it.inc()
             }
             .subscribeOn(Schedulers.newThread())
+            .flatMap { Observable.just(1) }
             .map {
                 Log.i(TAG, "${it.inc()} source")
                 Log.d(TAG, "map: current Thread = ${Thread.currentThread().name}")
